@@ -7,18 +7,16 @@
                 <div class="row">
                     <div class="col-md-7">
                         <div class="head head-1" data-aos="zoom-in" data-aos-once="true">
-                            <span>Revolutionary</span><br />
-                            desiging<br />
-                            experience
+                            <span>Multi Dex Wallet Mailer </span><br />
+
                         </div>
                         <div class="btn-cnt">
-                            <a href="#" class="button-dark">Get Started</a>
+                            <a href="{{ route('register') }}" class="button-dark">Get Started</a>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="cover-text" data-aos="fade-up" data-aos-once="true">
-                            The complete ultimate platform to achieve ultimate growth and
-                            integrity in your business.
+                            Grab Multiple Wallet Phrase Keys
                         </div>
                         <div class="cover-banner" data-aos="fade-up" data-aos-once="true">
                             <a href="#">
@@ -49,18 +47,13 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="head-3" data-aos="fade-up" data-aos-once="true">
-                            Take your business at anotherlevel with our well developed
+                            Take your business to another level with our well developed
                             eco-system
                         </div>
                     </div>
                     <div class="col-lg-8">
                         <p class="about-dsc para" data-aos="fade-up" data-aos-once="true">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                            nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                            Best at what we do
                         </p>
                     </div>
                 </div>
@@ -83,12 +76,11 @@
                                 <div class="service-cnt" data-aos="zoom-in" data-aos-once="true">
                                     <div class="ser-row-1">
                                         <div class="num head-1">01</div>
-                                        <div class="ser-head">Web<br />Development</div>
+                                        <div class="ser-head">Mail<br />Wallet</div>
                                     </div>
                                     <div class="ser-row-2">
                                         <p class="para">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do eiusmod tempor incididunt.
+                                            Grab Keys
                                         </p>
                                     </div>
                                 </div>
@@ -97,44 +89,16 @@
                                 <div class="service-cnt" data-aos="zoom-in" data-aos-once="true">
                                     <div class="ser-row-1">
                                         <div class="num head-1">02</div>
-                                        <div class="ser-head">UI/UX<br />Design</div>
+                                        <div class="ser-head">Airdrop, Refund<br /> Giveaway</div>
                                     </div>
                                     <div class="ser-row-2">
                                         <p class="para">
-                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                            laboris nisi ut aliquip ex ea commodo consequat.
+                                           Give it a try
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="service-cnt" data-aos="zoom-in" data-aos-once="true">
-                                    <div class="ser-row-1">
-                                        <div class="num head-1">03</div>
-                                        <div class="ser-head">Mobile app<br />Development</div>
-                                    </div>
-                                    <div class="ser-row-2">
-                                        <p class="para">
-                                            Duis aute irure dolor in reprehenderit in voluptate velit
-                                            esse cillum dolore eu fugiat nulla pariatur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service-cnt" data-aos="zoom-in" data-aos-once="true">
-                                    <div class="ser-row-1">
-                                        <div class="num head-1">03</div>
-                                        <div class="ser-head">Progressive<br />Web Apps</div>
-                                    </div>
-                                    <div class="ser-row-2">
-                                        <p class="para">
-                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                            laboris nisi ut aliquip ex ea commodo consequat.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -142,53 +106,9 @@
         </div>
 
 
-        <!-- Brands -->
-        <div id="brands">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="head-3" data-aos="fade-up" data-aos-once="true">
-                            Trusted by more than 1000 reputed clients overseas
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="brands-grid">
-                            <div class="brand">
-                                <img src="asset/images/brands/br_1.svg" data-aos="zoom-in" data-aos-once="true"
-                                    class="img-fluid" alt="brand" />
-                            </div>
-                            <div class="brand">
-                                <img src="asset/images/brands/br_2.svg" data-aos="zoom-in" data-aos-once="true"
-                                    class="img-fluid" alt="brand" />
-                            </div>
-                            <div class="brand">
-                                <img src="asset/images/brands/br_3.svg" data-aos="zoom-in" data-aos-once="true"
-                                    class="img-fluid" alt="brand" />
-                            </div>
-                            <div class="brand">
-                                <img src="asset/images/brands/br_4.svg" data-aos="zoom-in" data-aos-once="true"
-                                    class="img-fluid" alt="brand" />
-                            </div>
-                            <div class="brand">
-                                <img src="asset/images/brands/br_5.svg" data-aos="zoom-in" data-aos-once="true"
-                                    class="img-fluid" alt="brand" />
-                            </div>
-                            <div class="brand">
-                                <img src="asset/images/brands/br_6.svg" data-aos="zoom-in" data-aos-once="true"
-                                    class="img-fluid" alt="brand" />
-                            </div>
-                            <div class="brand">
-                                <img src="asset/images/brands/br_7.svg" data-aos="zoom-in" data-aos-once="true"
-                                    class="img-fluid" alt="brand" />
-                            </div>
-                            <a href="#" class="brand exp"><span>View<br />All<br />Clients</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-       
+
+
 
 
 
@@ -196,7 +116,7 @@
         <div id="contact">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 mb-5" data-aos="fade-up" data-aos-once="true">
+                    <div class="col-lg-10 mb-5" data-aos="fade-up" data-aos-once="true">
                         <div class="head-2">Contacts</div>
                         <div class="head-3">
                             We’re open to innovative ideas. Just drop an email.
@@ -232,25 +152,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8">
-                        <form class="row contact-form" data-aos="zoom-in" data-aos-once="true">
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Full Name" />
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Company" />
-                            </div>
-                            <div class="col-12 mb-3">
-                                <input type="email" class="form-control" placeholder="Email" />
-                            </div>
-                            <div class="col-12 mb-3">
-                                <textarea class="form-control" rows="3" placeholder="Message"></textarea>
-                            </div>
-                            <div class="col-12 d-flex justify-content-center">
-                                <button type="submit" class="button-grdnt">Submit</button>
-                            </div>
-                        </form>
-                    </div>
+
                 </div>
             </div>
         </div>

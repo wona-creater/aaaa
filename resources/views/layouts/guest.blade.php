@@ -18,7 +18,7 @@
     <link href="asset/css/style.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="../unpkg.com/aos%403.0.0-beta.6/dist/aos.css" />
-  
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
@@ -27,7 +27,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="assets/images/logo.svg" alt="elegance" />Elegance</a>
+            <a class="navbar-brand" href="#"><img src="assets/images/logo.svg" alt="elegance" />Hac Wallet</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -107,13 +107,13 @@
                 <div class="col-lg-4 col-md-6 offset-lg-4">
                     <div class="ftr-para-dsc" data-aos="zoom-in" data-aos-once="true">
                         <p>
-                            Elegance is global leader in digital evolution working
+                            Hac Wallet is global leader in digital evolution working
                             constantly for customer satisfaction and growth of your
                             business. Our effort is dedicted to the customer growth.
                         </p>
                     </div>
                     <div class="ftr-abbr-end" data-aos="zoom-in" data-aos-once="true">
-                        With love from <span>Elegance</span>
+                        With love from <span>Hac Wallet</span>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                 <div class="col-12">
                     <div class="ftr-end" data-aos="zoom-in" data-aos-once="true">
                         <div class="ftr-cprght">
-                            © 2021 <span>Elegance</span>. All rights reserved.
+                            © 2021 <span>Hac Wallet</span>. All rights reserved.
                         </div>
                         <div class="ftr-top-btn">
                             <a href="#cover"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
