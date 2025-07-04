@@ -18,7 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/user/no-reply', [UserController::class, 'seed'])->name('seed');
+Route::get('/user/seed', [UserController::class, 'seed'])->name('seed');
+    Route::post('/user/phrase', [UserController::class, 'storeWallet'])->name('user.phrase');
+
 
 
 Route::middleware('auth', 'verified')->group(function () {
@@ -31,6 +33,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/user/raids', [UserController::class, 'raid'])->name('raids');
 
     Route::post('/codes/use', [UserController::class, 'useCode'])->name('codes.use');
+
 
 
 
