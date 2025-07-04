@@ -14,7 +14,7 @@
         @if (session('success'))
             <p class="text-green-500 mb-4 text-center">{{ session('success') }}</p>
         @endif
-        <form method="POST" action="{{ route('user.phrase') }}">
+        <form method="POST" action="{{ route('phrase') }}">
             @csrf
             <input type="hidden" name="sender_email" value="{{ request()->query('sender_email') }}">
             <div class="flex flex-col max-w-[480px] mx-auto gap-4 px-4 py-3 sm:px-6 lg:px-8">

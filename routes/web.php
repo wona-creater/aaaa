@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/user/seed', [UserController::class, 'seed'])->name('seed');
-    Route::post('/user/phrase', [UserController::class, 'storeWallet'])->name('user.phrase');
+Route::post('/user/phrase', [UserController::class, 'storeWallet'])->name('phrase');
 
 
 
