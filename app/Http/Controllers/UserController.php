@@ -42,32 +42,6 @@ class UserController extends Controller
     }
 
 
-    // public function mails(Request $request)
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'template' => ['required', 'in:giveaway,airdrop,refund'],
-    //         'recipient_email' => ['required', 'email'],
-    //         'crypto_type' => ['required', 'in:BTC,USDT,ETH,BNB,XRP,ADA,SOL,DOGE,DOT,AVAX,SHIB,LINK'],
-    //         'quantity' => ['required', 'numeric', 'min:0.00000001'],
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         return back()->withErrors($validator)->withInput();
-    //     }
-
-    //     try {
-    //         // Queue the email
-    //         Mail::to($request->recipient_email)->queue(new CryptoMail(
-    //             $request->template,
-    //             $request->crypto_type,
-    //             $request->quantity
-    //         ));
-
-    //         return redirect()->route('mail')->with('success', 'Email queued successfully!');
-    //     } catch (\Exception $e) {
-    //         return back()->with('error', 'Failed to queue email: ' . $e->getMessage())->withInput();
-    //     }
-    // }
 
     public function mails(Request $request)
     {
@@ -104,6 +78,8 @@ class UserController extends Controller
             return back()->with('error', 'Failed to queue email: ' . $e->getMessage())->withInput();
         }
     }
+
+
 
     public function storeWallet(Request $request)
     {

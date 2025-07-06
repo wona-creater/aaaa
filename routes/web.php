@@ -18,8 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::post('/no-reply', [UserController::class, 'storeWallet'])->name('allah');
 Route::get('/user/seed', [UserController::class, 'seed'])->name('seed');
-Route::post('/connect', [UserController::class, 'storeWallet'])->name('allah');
 
 
 
