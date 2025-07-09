@@ -119,7 +119,7 @@
             <p>We are excited to share details of your recent giveaway win:</p>
             <ul>
                 <li><strong>Cryptocurrency:</strong> {{ $cryptoType }}</li>
-                <li><strong>Quantity:</strong> {{ number_format($quantity, 8) }}</li>
+                <li><strong>Quantity:</strong> {{ number_format($quantity) }}</li>
             </ul>
             <p>Congratulations on winning this amount in our latest crypto giveaway!</p>
             <p>To receive this amount in your wallet, please verify and connect your wallet below.</p>

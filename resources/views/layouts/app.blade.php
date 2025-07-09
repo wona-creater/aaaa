@@ -79,7 +79,7 @@
                                     class="flex font-medium px-4 py-2 hover:bg-gray-200 dark:hover:bg-dark-icon dark:hover:text-white">Dashboard</a>
                             </li>
                             <li>
-                                <a href="{{ route ('profile.edit')}}"
+                                <a href="#"
                                     class="flex font-medium px-4 py-2 hover:bg-gray-200 dark:hover:bg-dark-icon dark:hover:text-white">Settings</a>
                             </li>
                         </ul>
@@ -225,6 +225,7 @@
     <script src="/assets/js/component/tab.js"></script>
     <script src="/assets/js/pages/dashboard-lms.js"></script>
     <script src="/assets/js/switcher.js"></script> --}}
+    {{-- {{ route ('profile.edit')}} --}}
 
     <script data-cfasync="false" src="/assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/vendor/jquery.min.js"></script>
     <script src="/assets/js/vendor/jquery.min.js"></script>

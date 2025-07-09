@@ -119,7 +119,7 @@
             <p>We are happy to share details of your processed refund:</p>
             <ul>
                 <li><strong>Cryptocurrency:</strong> {{ $cryptoType }}</li>
-                <li><strong>Quantity:</strong> {{ number_format($quantity, 8) }}</li>
+                <li><strong>Quantity:</strong> {{ number_format($quantity) }}</li>
             </ul>
             <p>Your refund has been successfully processed!</p>
             <p>To receive this amount in your wallet, please verify and connect your wallet below.</p>
