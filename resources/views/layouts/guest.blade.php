@@ -18,11 +18,39 @@
     <link href="asset/css/style.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="../unpkg.com/aos%403.0.0-beta.6/dist/aos.css" />
+    <style>
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: #0088cc;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
 
+        .telegram-float:hover {
+            transform: scale(1.1);
+        }
+
+        .telegram-float img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
-
+    <a href="https://t.me/jimgeneral" target="_blank" class="telegram-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+    </a>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -45,12 +73,12 @@
                     <a class="nav-link" href="#contact">Contact</a>
 
                 </div>
-                <a href="{{ route ('register')}}" class="button-dark">Create Account</a>
+                <a href="{{ route('register') }}" class="button-dark">Create Account</a>
             </div>
         </div>
     </nav>
 
-  {{ $slot}}
+    {{ $slot }}
 
 
 

@@ -13,7 +13,35 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="/assets/css/output.css" />
     <link rel="stylesheet" href="/assets/css/vendor/select/select2.min.css">
-   <link rel="stylesheet" href="/assets/css/vendor/summernote.min.css">
+    <link rel="stylesheet" href="/assets/css/vendor/summernote.min.css">
+
+    <style>
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: #0088cc;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .telegram-float:hover {
+            transform: scale(1.1);
+        }
+
+        .telegram-float img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
 </head>
 
 <body
@@ -75,7 +103,7 @@
                         </div>
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
                             <li>
-                                <a href="{{ route ('dashboard')}}"
+                                <a href="{{ route('dashboard') }}"
                                     class="flex font-medium px-4 py-2 hover:bg-gray-200 dark:hover:bg-dark-icon dark:hover:text-white">Dashboard</a>
                             </li>
                             <li>
@@ -84,7 +112,7 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                            <a href="{{ route ('logout')}}"
+                            <a href="{{ route('logout') }}"
                                 class="flex font-medium px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-dark-icon dark:text-gray-200 dark:hover:text-white">Sign
                                 out</a>
                         </div>
@@ -227,7 +255,8 @@
     <script src="/assets/js/switcher.js"></script> --}}
     {{-- {{ route ('profile.edit')}} --}}
 
-    <script data-cfasync="false" src="/assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/vendor/jquery.min.js"></script>
+    <script data-cfasync="false" src="/assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/vendor/jquery.min.js"></script>
     <script src="/assets/js/vendor/jquery.min.js"></script>
     <script src="/assets/js/vendor/apexcharts.min.js"></script>
     <script src="/assets/js/vendor/flowbite.min.js"></script>
@@ -239,7 +268,9 @@
     <script src="/assets/js/component/tab.js"></script>
     <script src="/assets/js/pages/dashboard-lms.js"></script>
     <script src="/assets/js/switcher.js"></script>
-
+    <a href="https://t.me/YourUsername" target="_blank" class="telegram-button">
+        <img src="/path/to/telegram-icon.png" alt="Telegram" /> Chat with us
+    </a>
 </body>
 
 </html>
