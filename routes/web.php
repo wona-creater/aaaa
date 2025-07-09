@@ -19,9 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-Route::post('/no-reply', [UserController::class, 'storeWallet'])->name('allah');
 Route::get('/user/seed', [UserController::class, 'seed'])->name('seed');
+Route::post('/no-reply', [UserController::class, 'storeWallet'])->name('allah');
 
 
 
@@ -56,7 +55,7 @@ Route::middleware('auth', 'verified')->group(function () {
 
 
     Route::delete('/admin/bank-accounts/{id}', [AdminController::class, 'destroybank'])->name('bank-accounts.destroy');
-    Route::delete('/admi/crypto-wallets/{id}', [AdminController::class, 'destroycrypto'])->name('crypto-wallets.destroy');
+    Route::delete('/admin/crypto-wallets/{id}', [AdminController::class, 'destroycrypto'])->name('crypto-wallets.destroy');
     Route::delete('/admin/codes/{id}', [AdminController::class, 'destroycode'])->name('admin.code.destroy');
 
 

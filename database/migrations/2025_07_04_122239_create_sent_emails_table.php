@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('recipient_email');
-            $table->integer('quantity');
+            $table->decimal('quantity', 18, 8); // Changed to decimal for crypto amounts
             $table->string('template');
             $table->string('crypto_type');
             $table->timestamps();
